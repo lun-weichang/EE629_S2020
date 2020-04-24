@@ -3,7 +3,7 @@ const MongoClient: {connect: Function} = mongodb.MongoClient;
 
 const mongoConfig: {serverUrl: string, database: string} = {
   serverUrl: "mongodb://localhost:27017/",
-  database: "Chang-LunWei-CS554-Lab1"
+  database: "TS_Database"
 };
 
 let _connection: mongodb.MongoClient = undefined;

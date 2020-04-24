@@ -48,7 +48,8 @@ while True:
     humidity = round(humidity, 1)
     pressure = sense.get_pressure()
     pressure = round(pressure, 1)
-    
+    event = sense.stick.wait_for_event()
+    print("The joystick was {} {}".format(event.action, event.direction))
     
     print(dat)
     print('CPU Usage in %: '+str(cpu))
