@@ -1,12 +1,12 @@
 # EE629_S2020 - Sense Hat Weather Station
 
 ## Table of Contents
-* <a href="https://github.com/lun-weichang/EE629_S2020/tree/master/Final_Project_Codes" target="_blank">Final_Project_Codes</a>: Final_Project_Codes
-* <a href="https://github.com/lun-weichang/EE629_S2020/tree/master/React_Node_Example" target="_blank">Contributions</a>: Contributions
+* <a href="https://github.com/lun-weichang/EE629_S2020/tree/master/Final_Project_Codes" target="_blank">Final_Project_Codes</a>: Sense Hat Weather Station
+* <a href="https://github.com/lun-weichang/EE629_S2020/tree/master/React_Node_Example" target="_blank">Contributions</a>: React_Node_Example
 
 ## Getting Started
 
-- Visit "Final_Project_Codes" section for the sense hat python codes
+- Visit "Final_Project_Codes" section for the Sense Weather Station python codes
 - Visit "React_Node_Example" section to check out the React/Node tutorials and code examples
 
 ## Authors
