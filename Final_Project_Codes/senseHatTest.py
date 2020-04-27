@@ -39,10 +39,12 @@ sense = SenseHat()
 sense.clear()
 
 try:
-    temperature_sheet.update('A1', 'System_DateTime')
-    temperature_sheet.update('B1', 'System_CPU')
-    temperature_sheet.update('C1', 'System_Temp')
-    temperature_sheet.update('D1', 'Env_Temp')
+    # temperature_sheet.update('A1', 'System_DateTime')
+    # temperature_sheet.update('B1', 'System_CPU')
+    # temperature_sheet.update('C1', 'System_Temp')
+    # temperature_sheet.update('D1', 'Env_Temp')
+    temperature_sheet.format('A1:D1', {'textFormat': {'bold': True}})
+    temperature_sheet.append_row('System_DateTime', 'System_CPU', 'System_Temp', 'Env_Temp')
 except:
     print('Append error, logging in again')
     temperature_sheet = None
