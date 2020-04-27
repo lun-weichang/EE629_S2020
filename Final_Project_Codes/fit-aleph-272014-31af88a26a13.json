@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "fit-aleph-272014",
+  "private_key_id": "31af88a26a13dff1308b050513f7bfe5d0643396",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC7c49FdluDjrqq\nsGSXhxkdUw6PV6YRPA1UCohtIx2Y29D9urnRPJHpl8MVktroovelX0ya03iHl5Aw\nvKKPZ38qg6/+AUj6v9iPAVcxTJ30cal1QfXLz3TM/VJnH7d7/nBlB4J89bIOKelq\n+21ocaSHLsBmN3uZQwR61PeyueLADbybpv9HVA8jKQoTGYbggwCdL9xXOJU1Fa1B\nAwlGp0l1/PK6dMfxG8lpV1eQ4bfQAX6gGA/B2PTMWQNnmzTJKDFBItRjmcJglrxc\ngItliANLyHhVwGRdDl70uhU8Oq4WgeN0+osY4+fFvCy0XTngCEHxXyOdT4yoOUf/\nSDWkIrCXAgMBAAECggEAUFb8cliCa3WqYoq8akdQR8W3yU7XEa7rxXfINgJlZoTb\n40t65YcwwG23gpEQ+sESI9Ie+oKlN3QJrCHFCHJiyd1r+hEh7rp3vf7kmHAOiNyI\nNQXiq4oMNOljvmgVE3MfR+W6kwUY3cIv1RbSsv919Sxf8M9ZzXuwOVb6nKLX4Nil\nupHvES78xg96rxMO5KsRZg2llFW9liEitJpcRjnNtnP//anu8o+Akr9hgHuEO/Ta\nv2dqtHonbAo+JT+h3bddheorFU2Xgo9L3gSKyiy/MVuzk7ecWGu9tQ1ue1OLZdqw\nfTdrZ3Y39csXCL++tv9Vn8Nt/GgyW1ry853o1gnSkQKBgQDw95pwHZyDPTtPxGSK\nz9IUzdxv9sY7C26fcnThFNIKsEMFGF/KDQZvqLTxPQF0liBGC2QSHUoyc/iyziUE\nCL6QUaC1302AWVkJ/1MPyPSsBlnzrW4n1JdsInGTCRmVCOTqZpydnIyKZSmZIsEt\nqEPtdTmEY5HPMbd0ll+QmFPKRwKBgQDHJUaT+V75/asdkW3BCmFF2LHX/ItvTc5T\n7/LWI9xFz4WeYWL4dq3F0xmQS2ZYtnRQvD0D1jZYPNiCXedEdSM3Q8U+hDgEbySX\nvlfn7PKNUjXoKAVi3vvI3eStcraVn/vpKqhiQYlKz9Kggx/yU8F2aT5yRaD4HIH1\nsRM4r2K/MQKBgQCABs3jK5hwkiPlKa9RoUE5FHc+dZq03EoWJTW8MNe4HhY9qsma\nDHmS8cvRMFyJmQnkrUCp7y3wyHUmayh3kD3PZ88/UjlXLCGGkkWLaXW1wFoigc65\nEtaw+UvmlzskV+loMMSdaQOytDT5y+FfZLtSeqnokQ5zSzLxmsODi6tZGQKBgBQ/\nJvDObqiN8MK90WHJ81/Niy9BXs+/IlYIVDEPTkrOsXALyKsoLbyqHLQ95jboveSj\nbrSgJ8BK11xRvbyJCD6LJleXy7YvspG26WsL/RD/Jbnnr7yAnSqr3J8Bxaxqqorn\nKl1q+lFf1bM6AZp6h3XJd27Yw2fWRiQ7j4+4zRpRAoGBAM4DSeSsdZmPCLvxxRsU\n1xYF/bcV4Sb72kP78LSHd0vrsBxtSy7kw9RjLIv+i6GzcNlHQgaybMVucJZv9t15\nhM7fwf1vB9ctxHSTu7687ac6dbMSb10A8Lq5jKq9HFeKi+cfb7J471IgevIR1J07\nYaXsJZiMP51mQwbYlcBbhE66\n-----END PRIVATE KEY-----\n",
+  "client_email": "ee629-ws@fit-aleph-272014.iam.gserviceaccount.com",
+  "client_id": "116828440729432461954",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ee629-ws%40fit-aleph-272014.iam.gserviceaccount.com"
+}
