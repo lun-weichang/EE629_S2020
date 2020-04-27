@@ -43,6 +43,8 @@ try:
     # temperature_sheet.update('B1', 'System_CPU')
     # temperature_sheet.update('C1', 'System_Temp')
     # temperature_sheet.update('D1', 'Env_Temp')
+    if temperature_sheet is None:
+        temperature_sheet = open_google_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME)
     temperature_sheet.format('A1:D1', {'textFormat': {'bold': True}})
     temperature_sheet.append_row('System_DateTime', 'System_CPU', 'System_Temp', 'Env_Temp')
 except:
