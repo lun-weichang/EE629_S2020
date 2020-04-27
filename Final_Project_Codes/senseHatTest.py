@@ -14,15 +14,15 @@ GDOCS_OAUTH_JSON       = 'rpidata-273419-24f27db82190.json'
 GDOCS_SPREADSHEET_NAME = 'WS_Data_Sheet'
 FREQUENCY_SECONDS      = 10
 
-# functions uses to open the google sheet
-def login_open_sheet(oauth_key_file, spreadsheet):
+# functions uses to open the temperature sheet
+def open_google_sheet(oauth_key_file, spreadsheet):
     try:
         credentials = ServiceAccountCredentials.from_json_keyfile_name(oauth_key_file, 
                       scopes = ['https://spreadsheets.google.com/feeds',
                                 'https://www.googleapis.com/auth/drive'])
         gc = gspread.authorize(credentials)
-        worksheet = gc.open(spreadsheet).temperature
-        return worksheet
+        google_sheet = gc.open(spreadsheet).temperature
+        return google_sheet
     except Exception as ex:
         print('Unable to login and get spreadsheet. Check OAuth credentials, spreadsheet name, and')
         print('make sure spreadsheet is shared to the client_email address in the OAuth .json file!')
@@ -31,19 +31,26 @@ def login_open_sheet(oauth_key_file, spreadsheet):
 
 print('Logging sensor measurements to {0} every {1} seconds.'.format(GDOCS_SPREADSHEET_NAME, FREQUENCY_SECONDS))
 print('Press Ctrl-C to quit.')
-worksheet = None    #reset worksheet variable
+temperature_sheet = None
+humidity_sheet = None
+pressure_sheet = None
+
 sense = SenseHat()
 sense.clear()
 
 while True:
-    if worksheet is None:
-        worksheet = login_open_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME)
+    if temperature_sheet is None:
+        temperature_sheet = open_google_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME)
+    if humidity_sheet is None:
+        humidity_sheet = open_google_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME)
+    if pressure_sheet is None:
+        pressure_sheet = open_google_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME)
     #get the data to be written onto the google sheet
-    dat = datetime.datetime.now()
-    cpu = psutil.cpu_percent()
-    tmp = get_temperature()
-    temp = sense.get_temperature()
-    temp = round(temp, 1)
+    system_datetime = datetime.datetime.now()
+    system_cpu = psutil.cpu_percent()
+    system_temp = get_temperature()
+    temp = round(sense.get_temperature(), 1)
+    #temp = round(temp, 1)
     humidity = sense.get_humidity()
     humidity = round(humidity, 1)
     pressure = sense.get_pressure()
@@ -51,9 +58,9 @@ while True:
     event = sense.stick.wait_for_event()
     print("The joystick was {} {}".format(event.action, event.direction))
     
-    print(dat)
-    print('CPU Usage in %: '+str(cpu))
-    print('Temperature in C: ' +str(tmp))
+    print(system_datetime)
+    print('CPU Usage in %: '+str(system_cpu))
+    print('Temperature in C: ' +str(system_temp))
     
     print("Pressure:", pressure)
     print("Temperature C", temp)
@@ -63,18 +70,25 @@ while True:
     sense.show_message("Current Humidity: {}".format(temp))
     #sets the column title of the spread sheet
     try:
-
+        temperature_sheet.update('A1', 'System_DateTime')
+        temperature_sheet.update('B1', 'System_CPU')
+        temperature_sheet.update('C1', 'System_Temp')
+        temperature_sheet.update('D1', 'Env_Temp')
     except:
+        print('Append error, logging in again')
+        temperature_sheet = None
+        time.sleep(FREQUENCY_SECONDS)
+        continue
 
     #appends the data to the google sheet
     try:
-        #set A1:B1 to bold
-        worksheet.format('A1:B1', {'textFormat': {'bold': True}})
+        #set A1:D1 to bold
+        temperature_sheet.format('A1:D1', {'textFormat': {'bold': True}})
         #appends the data into the google sheet
-        worksheet.append_row((str(dat), cpu, tmp, str(pressure), str(temp), str(humidity)))
+        temperature_sheet.append_row((str(system_datetime), system_cpu, system_temp, str(temp)))
     except:
         print('Append error, logging in again')
-        worksheet = None
+        temperature_sheet = None
         time.sleep(FREQUENCY_SECONDS)
         continue
     print('Wrote a row to {0}'.format(GDOCS_SPREADSHEET_NAME))
