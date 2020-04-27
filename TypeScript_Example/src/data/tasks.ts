@@ -91,14 +91,18 @@ const mongoCollections: MongoCollections = new MongoCollections();
     async function addTask(title: string, desc: string, hrEst: number, completed: boolean, comments): Promise<Task> {
         //validates function arguments
         if (arguments.length !== 5) {
+	    console.log(`Wrong number of argument(s) was given to create function! Number of argument(s) given = ${arguments.length}`);
             throw `Wrong number of argument(s) was given to create function! Number of argument(s) given = ${arguments.length}`;
         }
 
         if (!title || typeof title != "string" || title.length === 0) {
+	    console.log("Invalid task title was provided");
             throw "Invalid task title was provided";
         } else if (!desc || typeof desc != "string" || desc.length === 0) {
+            console.log("Invalid task description was provided");
             throw "Invalid task description was provided";
         } else if (!hrEst || typeof hrEst != "number") {
+	    console.log("Invalid task estimated hours was provided");
             throw "Invalid task estimated hours was provided";
         }
         let complete_param: boolean = false;
@@ -114,14 +118,16 @@ const mongoCollections: MongoCollections = new MongoCollections();
             completed: complete_param,
             comments: []
         };
-
+	console.log("get tasks collection");
         const taskCollection: Collection = await mongoCollections.getCollectionFn("tasks");
+	console.log("got tasks collection");
         interface newInsertInfo {
             insertedCount: number;
             insertedId: string;
         }
         const newInsertInformation: newInsertInfo = await taskCollection.insertOne(newTask);
-        if (newInsertInformation.insertedCount === 0) {
+	console.log("successfully inserted new task");        
+	if (newInsertInformation.insertedCount === 0) {
             throw "Could not create new task";
         }
         const newTaskId: string = newInsertInformation.insertedId;

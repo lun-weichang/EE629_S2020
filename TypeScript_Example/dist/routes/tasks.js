@@ -51,6 +51,10 @@ class Tasks {
                 return res.status(400).json({ error: "Invalid task completion indicator was provided" });
             }
             try {
+                console.log(`taskInfo.title = ${taskInfo.title}`);
+                console.log(`taskInfo.description = ${taskInfo.description}`);
+                console.log(`taskInfo.hoursEstimated = ${taskInfo.hoursEstimated}`);
+                console.log(`taskInfo.completed = ${taskInfo.completed}`);
                 let newTask = yield taskData.addTask(taskInfo.title, taskInfo.description, taskInfo.hoursEstimated, taskInfo.completed, taskInfo.comments);
                 return res.status(200).json(newTask);
             }

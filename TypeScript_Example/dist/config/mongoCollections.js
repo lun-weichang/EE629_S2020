@@ -18,9 +18,13 @@ class MongoCollections {
     getCollectionFn(collection) {
         return __awaiter(this, void 0, void 0, function* () {
             if (!this._col) {
+                console.log("!this._col");
                 const db = yield dbConnection.getDB();
+                console.log("Initialized db");
                 this._col = yield db.collection(collection);
+                console.log("Acquired db and _col");
             }
+            console.log("Return _col");
             return this._col;
         });
     }

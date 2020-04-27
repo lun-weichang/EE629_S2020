@@ -9,11 +9,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const mongodb = require("mongodb");
-const MongoClient = mongodb.MongoClient;
+//const MongoClient: {connect: Function} = mongodb.MongoClient;
+const MongoClient = require('mongodb').MongoClient;
 const mongoConfig = {
     serverUrl: "mongodb://localhost:27017/",
-    database: "Chang-LunWei-CS554-Lab1"
+    database: "test"
+    //database: "TS_Database"
 };
 let _connection = undefined;
 let _db = undefined;
@@ -21,9 +22,16 @@ class MongoConnect {
     getDB() {
         return __awaiter(this, void 0, void 0, function* () {
             if (_connection === undefined) {
-                _connection = yield MongoClient.connect(mongoConfig.serverUrl);
+                console.log("_connection === undefined");
+                console.log(`mongoConfig.serverUrl = ${mongoConfig.serverUrl}`);
+                //_connection = await MongoClient.connect(mongoConfig.serverUrl);
+                _connection = yield MongoClient.connect(mongoConfig.serverUrl, { useUnifiedTopology: true });
+                console.log("initialized connection");
+                console.log(`_connection = ${_connection}`);
                 _db = yield _connection.db(mongoConfig.database);
+                console.log("initialized _db");
             }
+            console.log("return db");
             return _db;
         });
     }

@@ -84,15 +84,19 @@ function addTask(title, desc, hrEst, completed, comments) {
     return __awaiter(this, arguments, void 0, function* () {
         //validates function arguments
         if (arguments.length !== 5) {
+            console.log(`Wrong number of argument(s) was given to create function! Number of argument(s) given = ${arguments.length}`);
             throw `Wrong number of argument(s) was given to create function! Number of argument(s) given = ${arguments.length}`;
         }
         if (!title || typeof title != "string" || title.length === 0) {
+            console.log("Invalid task title was provided");
             throw "Invalid task title was provided";
         }
         else if (!desc || typeof desc != "string" || desc.length === 0) {
+            console.log("Invalid task description was provided");
             throw "Invalid task description was provided";
         }
         else if (!hrEst || typeof hrEst != "number") {
+            console.log("Invalid task estimated hours was provided");
             throw "Invalid task estimated hours was provided";
         }
         let complete_param = false;
@@ -107,8 +111,11 @@ function addTask(title, desc, hrEst, completed, comments) {
             completed: complete_param,
             comments: []
         };
+        console.log("get tasks collection");
         const taskCollection = yield mongoCollections.getCollectionFn("tasks");
+        console.log("got tasks collection");
         const newInsertInformation = yield taskCollection.insertOne(newTask);
+        console.log("successfully inserted new task");
         if (newInsertInformation.insertedCount === 0) {
             throw "Could not create new task";
         }
