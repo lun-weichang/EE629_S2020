@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "ee629-final-project",
+  "private_key_id": "a659f07e9adc4db34e742cb018857af656fb2f02",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQC4p0dQcsLGdkZ/\nRJNh563C1FVhtlzYoiWjoTMRu0C0OrvDHP5+4FEn/USlAH2DicL34er4CmxNsopU\n855/8oqjwj5Vsmc5vWLPepERYaNJJCXzn4DZ9p8rlPHN/HNf1rzvcp9jEHM+cfNh\nraG4dk2tdBd46QheGBLO8jW1N0Im+33FYN91syd3tVY1r2pqxqB/hUoQxhz1U28x\nHgxQSF7KK6oy5IQ+sHltzwqN3WYZrJ7BKrpf4WuvNTq3gllR23hsfZGVJN1Y0hom\npvjFYNGnq4RwEIM7YT68IkJRuj7EZKKJ5tU47cal81WvRw4gvFpSumLkWRRabw/O\neDhegI9HAgMBAAECggEACWY6cxXkZEXRANl0xx8L8UbtsbOetkhKsjGab+SgPoxe\n0me/bKXue6Kgw+Vqfi+dBREy7L1bFflooTplbw3hkMRqd+JE7uN9DCKpD8FwlmCI\nrgYIgQ/Uulsyk9Gt7cr4gxfKlThZJWyXfvlfqgwbmCC4sSbrjh6bln0tzrOpYmKE\nsKXNnOByDbcyo5DzCJX1fWeYAarYVeeRjfrBGqF3iEGa1/evHTkMSUE2qe9bMoLE\nUr9n2CRjZF7A6X7ms1RJD/Iqdh82p34gtBUu7YZ0J9+TYvnadhwNV0q4Q2/tMSoE\nQwz/+VgarUIPL1AZVbtzjGgye0X4jFsJwx+I3lRkwQKBgQDmOwXo3hyjny46Gk2S\nkWsdBTFX78QDUOPLLYSfLm3TFeT+fN0DXeaEcXGnHoBxlFXfY7WuTXZi1M9IaaKF\nW8+VXcbcOXEO2HhF34qDnZteA7q9nPRWIaao21oRZLY2BCozGLvki2GCvbSsmW6G\nB4WXDXDdl7Sn/Kd6bAaZzWLGowKBgQDNUkxc6MXeO0Vk8zPoTom0VRpv4iuxOGU+\n6EG1KQX3nrO1abXsjKvCd/PNZk5xAEbgF8yjINO95eXZHWPNpp+AgeF/T+jZpqkC\nJrx08o/po6d4qZN4nTgsB3QepmbTQdLh2qnJg8vNoA3SHKdehOUDvfCW1h+Glfvp\nBGqPYg4zDQKBgQDJMTUl3cvbNMTZ45h8h/W544rOVOnPGAYozLtDu/gfade2iPk+\n8vT6MoTmTSJjnwQ39lOTYYAeN+h4WE+9CJFr7wpT8yKYnZTlQscx4y4dx1aOUrW2\n+ytADog0APW2WIdkJa40t5TcAtn7pw1NtQ8KBKXoD6XA02qr8fEGwNQbzwKBgQCR\nA1I5wJGXrscJUJfVuDqb6gt9AAGZ7lnbv1BBMhMr26PTOjEqPARHmk7QQDSgrPBh\n740xncrO8WOQH6jQo6E9sv3f3EF6D7KIeXFbK8Im4tYya5pjcq8ssar6xs4S4Qef\nSr/mOrajqSp5vpEbOcNCDFGzRtIHTUEZR2w3jqq2tQKBgQCsJ3pxIOiFG9t+RvOT\ntIg4IK8jc9AGHEXuVlA5efzi/EjCXaH8c3flZboV1xY5daAz7D3vITxKjp/t7W7l\nInOgXT1jhw8ARX87+HTKzIMjJxOGPF4lpf8mp9aOpvk4Yrpyi093rkdaFgsqCmlC\nvLgyHH0s/Yhv4SBNgdqR3pAdpg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "ee629-lunweichang-finalproject@ee629-final-project.iam.gserviceaccount.com",
+  "client_id": "112593957601284643337",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ee629-lunweichang-finalproject%40ee629-final-project.iam.gserviceaccount.com"
+}
