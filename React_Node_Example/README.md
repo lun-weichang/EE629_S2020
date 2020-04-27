@@ -54,7 +54,6 @@ $ npm start
 - Machines Page: http://localhost:3000/machines/page/0
 
 ## Additional Tutorials and Resources:
-- Intro to React: https://reactjs.org/tutorial/tutorial.html
 * <a href="https://reactjs.org/tutorial/tutorial.html" target="_blank">Install Node.js and Npm on Raspberry Pi</a>
 * <a href="https://reactjs.org/tutorial/tutorial.html" target="_blank">Intro to React</a>
 * <a href="https://www.digitalocean.com/community/tutorials/getting-started-with-react-hooks" target="_blank">Getting Started with React Hooks</a>
