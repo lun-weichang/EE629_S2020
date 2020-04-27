@@ -10,7 +10,7 @@ import subprocess
 from system_info import get_temperature
 from oauth2client.service_account import ServiceAccountCredentials
 
-GDOCS_OAUTH_JSON       = 'rpidata-273419-24f27db82190.json'
+GDOCS_OAUTH_JSON       = 'ee629-final-project-a659f07e9adc.json'
 GDOCS_SPREADSHEET_NAME = 'WS_Data_Sheet'
 FREQUENCY_SECONDS      = 10
 
