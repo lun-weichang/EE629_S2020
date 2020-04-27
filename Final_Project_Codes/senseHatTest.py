@@ -21,12 +21,12 @@ def open_google_sheet(oauth_key_file, spreadsheet):
                       scopes = ['https://spreadsheets.google.com/feeds',
                                 'https://www.googleapis.com/auth/drive'])
         gc = gspread.authorize(credentials)
-        google_sheet = gc.open(spreadsheet).temperature
+        google_sheet = gc.open(spreadsheet).worksheet('sheet2')
         return google_sheet
     except Exception as ex:
-        print('Unable to login and get spreadsheet. Check OAuth credentials, spreadsheet name, and')
-        print('make sure spreadsheet is shared to the client_email address in the OAuth .json file!')
-        print('Google sheet login failed with error:', ex)
+        print('#####Unable to login and get spreadsheet. Check OAuth credentials, spreadsheet name, and\\n')
+        print('#####make sure spreadsheet is shared to the client_email address in the OAuth .json file!\\n')
+        print('#####Google sheet login failed with error:', ex)
         sys.exit(1)
 
 print('Logging sensor measurements to {0} every {1} seconds.'.format(GDOCS_SPREADSHEET_NAME, FREQUENCY_SECONDS))
@@ -38,19 +38,15 @@ pressure_sheet = None
 sense = SenseHat()
 sense.clear()
 
-try:
-    # temperature_sheet.update('A1', 'System_DateTime')
-    # temperature_sheet.update('B1', 'System_CPU')
-    # temperature_sheet.update('C1', 'System_Temp')
-    # temperature_sheet.update('D1', 'Env_Temp')
-    if temperature_sheet is None:
+if temperature_sheet is None:
         temperature_sheet = open_google_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME)
+
+try:
     temperature_sheet.format('A1:D1', {'textFormat': {'bold': True}})
-    temperature_sheet.append_row('System_DateTime', 'System_CPU', 'System_Temp', 'Env_Temp')
-except:
-    print('Append error, logging in again')
-    temperature_sheet = None
-    time.sleep(FREQUENCY_SECONDS)
+    temperature_sheet.append_row(('System_DateTime', 'System_CPU', 'System_Temp', 'Env_Temp'))
+except Exception as ex:
+    print('$$$$$$Google sheet login failed with error:', ex)
+    sys.exit(1)
 
 # while True:
 #     if temperature_sheet is None:
