@@ -38,61 +38,72 @@ pressure_sheet = None
 sense = SenseHat()
 sense.clear()
 
-while True:
-    if temperature_sheet is None:
-        temperature_sheet = open_google_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME)
-    if humidity_sheet is None:
-        humidity_sheet = open_google_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME)
-    if pressure_sheet is None:
-        pressure_sheet = open_google_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME)
-    #get the data to be written onto the google sheet
-    system_datetime = datetime.datetime.now()
-    system_cpu = psutil.cpu_percent()
-    system_temp = get_temperature()
-    temp = round(sense.get_temperature(), 1)
-    #temp = round(temp, 1)
-    humidity = sense.get_humidity()
-    humidity = round(humidity, 1)
-    pressure = sense.get_pressure()
-    pressure = round(pressure, 1)
-    event = sense.stick.wait_for_event()
-    print("The joystick was {} {}".format(event.action, event.direction))
-    
-    print(system_datetime)
-    print('CPU Usage in %: '+str(system_cpu))
-    print('Temperature in C: ' +str(system_temp))
-    
-    print("Pressure:", pressure)
-    print("Temperature C", temp)
-    print("Humidity :", humidity)
-    sense.show_message("Current Temp: {}".format(temp))
-    sense.show_message("Current Temp: {}".format(temp))
-    sense.show_message("Current Humidity: {}".format(temp))
-    #sets the column title of the spread sheet
-    try:
-        temperature_sheet.update('A1', 'System_DateTime')
-        temperature_sheet.update('B1', 'System_CPU')
-        temperature_sheet.update('C1', 'System_Temp')
-        temperature_sheet.update('D1', 'Env_Temp')
-    except:
-        print('Append error, logging in again')
-        temperature_sheet = None
-        time.sleep(FREQUENCY_SECONDS)
-        continue
-
-    #appends the data to the google sheet
-    try:
-        #set A1:D1 to bold
-        temperature_sheet.format('A1:D1', {'textFormat': {'bold': True}})
-        #appends the data into the google sheet
-        temperature_sheet.append_row((str(system_datetime), system_cpu, system_temp, str(temp)))
-    except:
-        print('Append error, logging in again')
-        temperature_sheet = None
-        time.sleep(FREQUENCY_SECONDS)
-        continue
-    print('Wrote a row to {0}'.format(GDOCS_SPREADSHEET_NAME))
+try:
+    temperature_sheet.update('A1', 'System_DateTime')
+    temperature_sheet.update('B1', 'System_CPU')
+    temperature_sheet.update('C1', 'System_Temp')
+    temperature_sheet.update('D1', 'Env_Temp')
+except:
+    print('Append error, logging in again')
+    temperature_sheet = None
     time.sleep(FREQUENCY_SECONDS)
+    continue
+
+# while True:
+#     if temperature_sheet is None:
+#         temperature_sheet = open_google_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME)
+#     if humidity_sheet is None:
+#         humidity_sheet = open_google_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME)
+#     if pressure_sheet is None:
+#         pressure_sheet = open_google_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME)
+#     #get the data to be written onto the google sheet
+#     system_datetime = datetime.datetime.now()
+#     system_cpu = psutil.cpu_percent()
+#     system_temp = get_temperature()
+#     temp = round(sense.get_temperature(), 1)
+#     #temp = round(temp, 1)
+#     humidity = sense.get_humidity()
+#     humidity = round(humidity, 1)
+#     pressure = sense.get_pressure()
+#     pressure = round(pressure, 1)
+#     event = sense.stick.wait_for_event()
+#     print("The joystick was {} {}".format(event.action, event.direction))
+    
+#     print(system_datetime)
+#     print('CPU Usage in %: '+str(system_cpu))
+#     print('Temperature in C: ' +str(system_temp))
+    
+#     print("Pressure:", pressure)
+#     print("Temperature C", temp)
+#     print("Humidity :", humidity)
+#     sense.show_message("Current Temp: {}".format(temp))
+#     sense.show_message("Current Temp: {}".format(temp))
+#     sense.show_message("Current Humidity: {}".format(temp))
+#     #sets the column title of the spread sheet
+#     try:
+#         temperature_sheet.update('A1', 'System_DateTime')
+#         temperature_sheet.update('B1', 'System_CPU')
+#         temperature_sheet.update('C1', 'System_Temp')
+#         temperature_sheet.update('D1', 'Env_Temp')
+#     except:
+#         print('Append error, logging in again')
+#         temperature_sheet = None
+#         time.sleep(FREQUENCY_SECONDS)
+#         continue
+
+#     #appends the data to the google sheet
+#     try:
+#         #set A1:D1 to bold
+#         temperature_sheet.format('A1:D1', {'textFormat': {'bold': True}})
+#         #appends the data into the google sheet
+#         temperature_sheet.append_row((str(system_datetime), system_cpu, system_temp, str(temp)))
+#     except:
+#         print('Append error, logging in again')
+#         temperature_sheet = None
+#         time.sleep(FREQUENCY_SECONDS)
+#         continue
+#     print('Wrote a row to {0}'.format(GDOCS_SPREADSHEET_NAME))
+#     time.sleep(FREQUENCY_SECONDS)
 
 
 sense.clear()
