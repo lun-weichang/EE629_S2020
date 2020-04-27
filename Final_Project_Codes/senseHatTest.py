@@ -47,7 +47,6 @@ except:
     print('Append error, logging in again')
     temperature_sheet = None
     time.sleep(FREQUENCY_SECONDS)
-    continue
 
 # while True:
 #     if temperature_sheet is None:
