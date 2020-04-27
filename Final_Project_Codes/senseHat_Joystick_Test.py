@@ -6,7 +6,6 @@ from sense_hat import SenseHat
 from time import sleep
 from system_info import get_temperature
 
-#initializes sense head
 sense = SenseHat()
 sense.clear()
 
