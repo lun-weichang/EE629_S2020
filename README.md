@@ -1,4 +1,4 @@
-# EE629_S2020 - Sense Hat Weather Station
+# EE629_S2020 - Indoor Weather Monitor
 
 ## Table of Contents
 * <a href="https://github.com/lun-weichang/EE629_S2020/tree/master/Final_Project_Codes" target="_blank">Final_Project_Codes</a>: Sense Hat Weather Station
