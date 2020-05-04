@@ -13,6 +13,14 @@ from oauth2client.service_account import ServiceAccountCredentials
 GDOCS_OAUTH_JSON       = 'ee629wsproject-7d249e8f524e.json'
 GDOCS_SPREADSHEET_NAME = 'WS_Data_Sheet'
 FREQUENCY_SECONDS      = 10
+#initializes pixel colors
+red = (255, 0, 0)
+orange = (255, 165, 0)
+yellow = (255, 255, 0)
+green = (0, 255, 0)
+blue = (0, 0, 255)
+purple = (160, 32, 240)
+white = (255, 255, 255)
 
 # functions uses to open the temperature sheet
 def open_google_sheet(oauth_key_file, spreadsheet, sheetName):
@@ -59,8 +67,13 @@ except Exception as ex:
 
 # determinates whether to stop collecting data
 terminate = False
+event = sense.stick.wait_for_event()
 
 while not terminate:
+    #checks if the pause button has been pressed
+    if (str(event.action) == "pressed" and str(event.direction) == "middle"):
+        terminate = True
+        break
     if temperature_sheet is None:
         temperature_sheet = open_google_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME, 'temperature')
     if humidity_sheet is None:
@@ -77,8 +90,6 @@ while not terminate:
     env_humidity = round(env_humidity, 1)
     env_pressure = sense.get_pressure()
     env_pressure = round(env_pressure, 1)
-    event = sense.stick.wait_for_event()
-    print("The joystick was {} {}".format(event.action, event.direction))
     
     print(system_datetime)
     print('CPU Usage in %: '+str(system_cpu))
@@ -87,9 +98,28 @@ while not terminate:
     print("Pressure:", env_pressure)
     print("Temperature C", env_temp)
     print("Humidity :", env_humidity)
-    # sense.show_message("Current Temp: {}".format(env_temp))
-    # sense.show_message("Current Temp: {}".format(env_temp))
-    # sense.show_message("Current Humidity: {}".format(env_temp))
+    #displays the temperature data on Sense HAT LED screen
+    if (int(env_temp) > 15):
+        # sense.clear(red)
+        sense.show_message(("Current Temp: {}".format(env_temp)), scroll_speed= 1, text_colour=red, back_colour=white)
+    else:
+        # sense.clear(blue)
+        sense.show_message(("Current Temp: {}".format(env_temp)), scroll_speed= 1, text_colour=blue, back_colour=white)
+    #displays the pressure data on Sense HAT LED screen
+    if (int(env_pressure) > 1000):
+        # sense.clear(red)
+        sense.show_message(("Current Pressure: {}".format(env_pressure)), scroll_speed= 1, text_colour=red, back_colour=white)
+    else:
+        # sense.clear(blue)
+        sense.show_message(("Current Pressure: {}".format(env_pressure)), scroll_speed= 1, text_colour=blue, back_colour=white)
+    
+    #displays the humidity data on Sense HAT LED screen
+    if (int(env_humidity) > 1000):
+        # sense.clear(red)
+        sense.show_message(("Current Humidity: {}".format(env_humidity)), scroll_speed= 1, text_colour=red, back_colour=white)
+    else:
+        # sense.clear(blue)
+        sense.show_message(("Current Humidity: {}".format(env_humidity)), scroll_speed= 1, text_colour=blue, back_colour=white)
 
     #appends the data to the google sheet
     try:
@@ -105,5 +135,5 @@ while not terminate:
     print('Wrote a row to {}'.format(GDOCS_SPREADSHEET_NAME))
     time.sleep(FREQUENCY_SECONDS)
 
-
+#stops the Sense HAT sensor
 sense.clear()
