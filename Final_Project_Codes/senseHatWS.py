@@ -98,29 +98,31 @@ while not terminate:
     print("Pressure:", env_pressure)
     print("Temperature C", env_temp)
     print("Humidity :", env_humidity)
-    #displays the temperature data on Sense HAT LED screen
-    if (int(env_temp) > 15):
-        # sense.clear(red)
-        sense.show_message(("Current Temp: {}".format(env_temp)), scroll_speed= 1, text_colour=red, back_colour=white)
-    else:
-        # sense.clear(blue)
-        sense.show_message(("Current Temp: {}".format(env_temp)), scroll_speed= 1, text_colour=blue, back_colour=white)
-    #displays the pressure data on Sense HAT LED screen
-    if (int(env_pressure) > 1000):
-        # sense.clear(red)
-        sense.show_message(("Current Pressure: {}".format(env_pressure)), scroll_speed= 1, text_colour=red, back_colour=white)
-    else:
-        # sense.clear(blue)
-        sense.show_message(("Current Pressure: {}".format(env_pressure)), scroll_speed= 1, text_colour=blue, back_colour=white)
+    # #displays the temperature data on Sense HAT LED screen
+    # if (int(env_temp) > 15):
+    #     # sense.clear(red)
+    #     sense.show_message(("Current Temp: {}".format(env_temp)), scroll_speed= 1, text_colour=red, back_colour=white)
+    # else:
+    #     # sense.clear(blue)
+    #     sense.show_message(("Current Temp: {}".format(env_temp)), scroll_speed= 1, text_colour=blue, back_colour=white)
+    # #displays the pressure data on Sense HAT LED screen
+    # if (int(env_pressure) > 1000):
+    #     # sense.clear(red)
+    #     sense.show_message(("Current Pressure: {}".format(env_pressure)), scroll_speed= 1, text_colour=red, back_colour=white)
+    # else:
+    #     # sense.clear(blue)
+    #     sense.show_message(("Current Pressure: {}".format(env_pressure)), scroll_speed= 1, text_colour=blue, back_colour=white)
     
-    #displays the humidity data on Sense HAT LED screen
-    if (int(env_humidity) > 1000):
-        # sense.clear(red)
-        sense.show_message(("Current Humidity: {}".format(env_humidity)), scroll_speed= 1, text_colour=red, back_colour=white)
-    else:
-        # sense.clear(blue)
-        sense.show_message(("Current Humidity: {}".format(env_humidity)), scroll_speed= 1, text_colour=blue, back_colour=white)
+    # #displays the humidity data on Sense HAT LED screen
+    # if (int(env_humidity) > 1000):
+    #     # sense.clear(red)
+    #     sense.show_message(("Current Humidity: {}".format(env_humidity)), scroll_speed= 1, text_colour=red, back_colour=white)
+    # else:
+    #     # sense.clear(blue)
+    #     sense.show_message(("Current Humidity: {}".format(env_humidity)), scroll_speed= 1, text_colour=blue, back_colour=white)
 
+    sense.show_message(("Current Pressure: {}".format(env_pressure)), scroll_speed= 1, text_colour=blue, back_colour=white)
+    sense.show_message(("Current Humidity: {}".format(env_humidity)), scroll_speed= 1, text_colour=blue, back_colour=white)
     #appends the data to the google sheet
     try:
         #appends the data into the google sheet
