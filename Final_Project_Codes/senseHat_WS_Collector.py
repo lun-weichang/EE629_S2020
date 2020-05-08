@@ -12,15 +12,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 GDOCS_OAUTH_JSON       = 'ee629wsproject-7d249e8f524e.json'
 GDOCS_SPREADSHEET_NAME = 'WS_Data_Sheet'
-FREQUENCY_SECONDS      = 10
-#initializes pixel colors
-red = (255, 0, 0)
-orange = (255, 165, 0)
-yellow = (255, 255, 0)
-green = (0, 255, 0)
-blue = (0, 0, 255)
-purple = (160, 32, 240)
-white = (255, 255, 255)
+FREQUENCY_SECONDS      = 20
 
 # functions uses to open the temperature sheet
 def open_google_sheet(oauth_key_file, spreadsheet, sheetName):
