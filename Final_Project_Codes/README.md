@@ -6,15 +6,15 @@
 * Purpose:
 * How to run:
 ```python
-python senseHat_WS_Test.py
+$ python senseHat_WS_Test.py
 ```
 * Expected outputs:
 
 ### senseHat_Joystick.py
 * Purpose:
 * How to run:
-```python
-python senseHat_Joystick.py
+```shell
+$ python senseHat_Joystick.py
 ```
 * Expected outputs:
 
@@ -22,6 +22,6 @@ python senseHat_Joystick.py
 * Purpose:
 * How to run:
 ```
-python senseHat_WS_Collector.py
+$ python senseHat_WS_Collector.py
 ```
 * Expected outputs:
