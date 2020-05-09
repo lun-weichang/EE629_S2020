@@ -18,6 +18,7 @@ $ python senseHat_WS_Collector.py
 You should see the CPU usage, system tempearture, environment temperature, pressure and humidity data being printed out in command line.
 Also the data should be stored into designated Google spread sheet (remember to modify the GDOCS_SPREADSHEET_NAME and GDOCS_OAUTH_JSON variables).
 <img src="https://github.com/lun-weichang/EE629_S2020/blob/master/Pictures/senseHat_WS_Collector.png" title="senseHat_WS_Collector_output" alt="senseHat_WS_Collector_output">
+<img src="https://github.com/lun-weichang/EE629_S2020/blob/master/Pictures/Google_Sheet_Data.PNG" title="senseHat_WS_Data_Google" alt="senseHat_WS_Data_Google">
 
 ### senseHat_Joystick
 > Purpose:
