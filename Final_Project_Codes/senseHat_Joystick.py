@@ -21,9 +21,9 @@ black = (0, 0, 0)
 
 dataType = None
 dataInfo = None
-textColor = black
-backColor = white
-textSpeed = 0.01
+textColor = white
+backColor = black
+textSpeed = 0.07
 #wait for joystick event test
 while True:
     
@@ -32,6 +32,7 @@ while True:
     event_direction = str(event.direction)
     if (event_action == "pressed" and event_direction == "middle"):
         print("Terminate the program!")
+	sense.show_message(("Terminate"), scroll_speed= textSpeed, text_colour=blue, back_colour=backColor)
 	break
     elif (event_action == "pressed" and event_direction == "up"):
         print("Get system date time!")
@@ -64,9 +65,14 @@ while True:
 		textColor = orange
 	else:
 		textColor = purple
-    print("{} = {}".format(dataType, dataInfo))    
+
+    print(" {} = {}".format(dataType, dataInfo))    
     sense.clear(white)
-    sense.show_message(("{} = {}".format(dataType, dataInfo)), scroll_speed= textSpeed, text_colour=textColor, back_colour=backColor)
+    message = "{} = {}".format(dataType, dataInfo)
+    sense.show_message(message, scroll_speed= textSpeed, text_colour=textColor, back_colour=backColor)
     sense.clear()
+    time.sleep(1)
+    event = sense.stick.wait_for_event()
+    #event = sense.stick.wait_for_event(emptybuffer=True)
 
 sense.clear() #clears the LED panel after exiting
