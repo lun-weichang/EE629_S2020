@@ -38,29 +38,7 @@ pressure_sheet = None
 sense = SenseHat()
 sense.clear()
 
-
-#sets the column title of the spread sheet
-try:
-    if temperature_sheet is None:
-        temperature_sheet = open_google_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME, 'temperature')
-    temperature_sheet.format('A1:D1', {'textFormat': {'bold': True}})
-    temperature_sheet.append_row(('Date_Time', 'System_CPU', 'System_Temp', 'Env_Temp'))
-    if humidity_sheet is None:
-        humidity_sheet = open_google_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME, 'humidity')
-    humidity_sheet.format('A1:D1', {'textFormat': {'bold': True}})
-    humidity_sheet.append_row(('Date_Time', 'Humidity'))
-    if pressure_sheet is None:
-        pressure_sheet = open_google_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME, 'pressure')
-    pressure_sheet.format('A1:D1', {'textFormat': {'bold': True}})
-    pressure_sheet.append_row(('Date_Time', 'Pressure'))
-except Exception as ex:
-    print('Google sheet login failed with error:', ex)
-    sys.exit(1)
-
-# determinates whether to stop collecting data
-terminate = False
-
-while not terminate:
+while True:
     if temperature_sheet is None:
         temperature_sheet = open_google_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME, 'temperature')
     if humidity_sheet is None:
@@ -71,14 +49,13 @@ while not terminate:
     system_datetime = datetime.datetime.now()
     system_cpu = psutil.cpu_percent()
     system_temp = get_temperature()
-    env_temp = round(sense.get_temperature(), 1)
-    #env_temp = round(env_temp, 1)
+    #env_temp = round(sense.get_temperature(), 1)
+    env_temp = sense.get_temperature()
+    env_temp = round(env_temp, 1)
     env_humidity = sense.get_humidity()
     env_humidity = round(env_humidity, 1)
     env_pressure = sense.get_pressure()
     env_pressure = round(env_pressure, 1)
-    event = sense.stick.wait_for_event()
-    print("The joystick was {} {}".format(event.action, event.direction))
     
     print(system_datetime)
     print('CPU Usage in %: '+str(system_cpu))
@@ -87,9 +64,6 @@ while not terminate:
     print("Pressure:", env_pressure)
     print("Temperature C", env_temp)
     print("Humidity :", env_humidity)
-    sense.show_message("Current Temp: {}".format(env_temp))
-    sense.show_message("Current Temp: {}".format(env_temp))
-    sense.show_message("Current Humidity: {}".format(env_temp))
 
     #appends the data to the google sheet
     try:
