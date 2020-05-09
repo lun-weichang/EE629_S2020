@@ -7,7 +7,7 @@
 
 ## Available programs to run:
 
-### senseHat_WS_Collector.py
+### senseHat_WS_Collector
 > Purpose:
 Collects temperature, humidity, and pressure data, then inserts these data into the Google Sheet.
 > How to run:
@@ -18,7 +18,7 @@ $ python senseHat_WS_Collector.py
 You should see the CPU usage, system tempearture, environment temperature, pressure and humidity data being printed out in command line.
 Also the data should be stored into designated Google spread sheet (remember to modify the GDOCS_SPREADSHEET_NAME and GDOCS_OAUTH_JSON variables).
 
-### senseHat_Joystick.py
+### senseHat_Joystick
 > Purpose:
 Demonstrates how sense Hat's joystick and LED panel work.
 > How to run:
