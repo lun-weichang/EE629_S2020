@@ -2,8 +2,8 @@
 
 ## Getting Started
 
-- Visit "[Final_Project_Codes](https://github.com/lun-weichang/EE629_S2020/tree/master/Final_Project_Codes)" for Weather Station Python codes
-- Visit "[React_Node_Example](https://github.com/lun-weichang/EE629_S2020/tree/master/React_Node_Example)" for React/Node tutorials and codes
+- Visit "[Final_Project_Codes](https://github.com/lun-weichang/EE629_S2020/tree/master/Final_Project_Codes)" for Weather Station Python code
+- Visit "[React_Node_Example](https://github.com/lun-weichang/EE629_S2020/tree/master/React_Node_Example)" for React/Node tutorials and code
 
 ## Authors
 
